@@ -1,0 +1,48 @@
+.lobby {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.lobby h1 {
+  font-size: 64px;
+  letter-spacing: -2px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.player-label {
+  font-size: 18px;
+  color: #7a8b9a;
+}
+
+.waiting {
+  color: #5a6a7a;
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.opponent-ready {
+  color: #2d9cdb;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.ready-btn {
+  background: #2d9cdb;
+  color: white;
+  font-size: 20px;
+  padding: 16px 48px;
+  box-shadow: 0 4px 16px rgba(45, 156, 219, 0.3);
+}
+
+.ready-btn:hover {
+  background: #3daae5;
+  box-shadow: 0 6px 20px rgba(45, 156, 219, 0.4);
+}
