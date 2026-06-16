@@ -184,9 +184,10 @@ class GameState:
             "player": player,
         }
 
-    def get_lobby_state(self) -> dict:
+    def get_lobby_state(self, player: int) -> dict:
         return {
             "status": "waiting",
+            "player": player,
             "player1Ready": self.player1_ready,
             "player2Ready": self.player2_ready,
         }

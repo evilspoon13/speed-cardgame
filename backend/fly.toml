@@ -4,16 +4,20 @@
 #
 
 app = 'speed-cardgame'
-primary_region = 'ams'
+primary_region = 'iad'
 
 [build]
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = 'stop'
+  # All game state lives in process memory (single global game in main.py), so the app
+  # MUST run on exactly one always-on machine. If Fly ever stops the machine (state is
+  # wiped) or runs two machines (each holds its own game, both players become Player 1),
+  # the game breaks. Keep this app pinned to a single machine: `fly scale count 1`.
+  auto_stop_machines = 'off'
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ['app']
 
 [[vm]]
