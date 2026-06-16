@@ -47,36 +47,63 @@
   box-shadow: 0 6px 20px rgba(45, 156, 219, 0.4);
 }
 
-.landing {
+.notice {
+  color: #e0b54a;
+  font-size: 15px;
+  text-align: center;
+  max-width: 340px;
+}
+
+.seat-list {
+  display: flex;
+  gap: 14px;
+}
+
+.seat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 6px;
+  min-width: 120px;
+  padding: 14px 18px;
+  background: #1b2733;
+  border: 2px solid #243240;
+  border-radius: 12px;
 }
 
-.landing h1 {
-  font-size: 64px;
-  letter-spacing: -2px;
-  color: #fff;
-  font-weight: 700;
+.seat.you {
+  border-color: #2d9cdb;
 }
 
-.notice {
-  color: #7a8b9a;
+.seat-name {
+  font-size: 14px;
+  color: #9fb0bf;
+}
+
+.seat-state {
   font-size: 16px;
-  text-align: center;
-  max-width: 320px;
+  font-weight: 700;
+  color: #7a8b9a;
 }
 
-.join-btn {
-  background: #2d9cdb;
-  color: white;
-  font-size: 20px;
-  padding: 16px 48px;
-  box-shadow: 0 4px 16px rgba(45, 156, 219, 0.3);
+.seat-state.ready {
+  color: #5fd38d;
 }
 
-.join-btn:hover {
-  background: #3daae5;
-  box-shadow: 0 6px 20px rgba(45, 156, 219, 0.4);
+.seat-state.absent {
+  color: #5a6a7a;
+  font-style: italic;
+}
+
+.leave-btn {
+  background: transparent;
+  color: #7a8b9a;
+  border: 1px solid #2c3a48;
+  font-size: 14px;
+  padding: 8px 20px;
+}
+
+.leave-btn:hover {
+  color: #e1e8ed;
+  border-color: #3a4a58;
 }

@@ -11,9 +11,10 @@ interface GameProps {
   onDraw: () => void
   onStuck: () => void
   onPlayAgain: () => void
+  onLeave: () => void
 }
 
-function Game({ gameState, player, error, onPlayCard, onDraw, onStuck, onPlayAgain }: GameProps) {
+function Game({ gameState, player, error, onPlayCard, onDraw, onStuck, onPlayAgain, onLeave }: GameProps) {
   const [selectedCard, setSelectedCard] = useState<number | null>(null)
 
   if (gameState.status === 'finished') {
@@ -23,6 +24,9 @@ function Game({ gameState, player, error, onPlayCard, onDraw, onStuck, onPlayAga
         <h1>{won ? 'SPEED! You win!' : 'You lost!'}</h1>
         <button className="play-again-btn" onClick={onPlayAgain}>
           Play Again
+        </button>
+        <button className="leave-btn" onClick={onLeave}>
+          Leave room
         </button>
       </div>
     )
@@ -42,6 +46,13 @@ function Game({ gameState, player, error, onPlayCard, onDraw, onStuck, onPlayAga
   return (
     <div className="game-board">
       {error && <div className="error-toast">{error}</div>}
+
+      {gameState.paused && (
+        <div className="paused-overlay">
+          <span className="conn-spinner" />
+          <p>Opponent disconnected — waiting for them to reconnect…</p>
+        </div>
+      )}
 
       {/* Opponent area */}
       <div className="opponent-area">

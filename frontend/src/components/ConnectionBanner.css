@@ -1,0 +1,88 @@
+.conn-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.conn-banner.online {
+  color: #5fd38d;
+  background: rgba(20, 40, 30, 0.6);
+}
+
+.conn-banner.connecting {
+  color: #e0b54a;
+  background: rgba(40, 36, 20, 0.6);
+}
+
+.conn-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.conn-dot.online {
+  background: #5fd38d;
+  box-shadow: 0 0 8px #5fd38d;
+}
+
+.conn-dot.connecting {
+  background: #e0b54a;
+  animation: conn-pulse 1.2s infinite;
+}
+
+.conn-banner.reconnecting {
+  padding: 14px 16px;
+  background: #b03a2e;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(176, 58, 46, 0.5);
+}
+
+.conn-reconnect-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.conn-reconnect-text {
+  font-size: 15px;
+}
+
+.conn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: conn-spin 0.8s linear infinite;
+}
+
+.conn-rejoin-btn {
+  background: #fff;
+  color: #b03a2e;
+  padding: 8px 20px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+@keyframes conn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes conn-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
